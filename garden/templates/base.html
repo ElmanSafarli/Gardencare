@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garden Care</title>
+    <link rel="icon" href="{% static 'assets/logo.jpg' %}">
+
+    <link type="text/css" href="{% static 'styles/main.css' %}" rel="stylesheet" />
+
+    <!-- Add the Slick CSS and JS files -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" />
+
+</head>
+<body>
+    {% block body %}{% endblock %}
+
+    {% include "./include/footer.html" %}
+    <button id="scrollToTopBtn" title="Go to top"><img src="{% static 'assets/botanic.png' %}" alt=""></button>
+
+<!-- Add the jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <!-- Add the Slick JS file -->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="{% static 'app/app.js' %}"></script>
+
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/d17c83b3d5.js" crossorigin="anonymous"></script>
+</body>

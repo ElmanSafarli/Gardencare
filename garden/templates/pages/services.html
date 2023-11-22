@@ -1,0 +1,83 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<header>
+        {% include "../include/topNav.html" %}
+        <div class="aboutPage">
+            <div class="aboutPage-content">
+                {% include "../include/header-nav.html" %}
+                 <div class="aboutPage-greeting">
+                    <h1>Servislərimiz</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+ <section>
+        <div class="servicePage">
+            <div class="servicePage-content">
+                <div class="servicePage-left">
+                    <div class="servicePage-title">Yard Maintaince</div>
+                    <div class="servicePage-text">
+                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
+                        totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+                        dicta
+                        sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed
+                        quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
+                        est, qui dolorem ipsum quia dolo
+                    </div>
+                    <div class="servicePage-img-1"><img src="{% static 'assets/slide3.jpg' %}'" alt=""></div>
+                    <div class="servicePage-subtitle">How to Benefit</div>
+                    <div class="servicePage-text">
+                        Unde omnis iste natus error voluptatem accusantium doloremque laudantium totam rem aperiam eaque
+                        quae abillo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemenim
+                        spsam voluptatem quia voluptas sit aspernatur aut odit fugit, sed quia consequunture
+                    </div>
+                    <div class="servicePage-text-list">
+                        <ul>
+                            <li><i class="fa-solid fa-circle-check"></i>We’re Experience Gardening</li>
+                            <li><i class="fa-solid fa-circle-check"></i>
+                                Natural product without GMO</li>
+                            <li><i class="fa-solid fa-circle-check"></i>Sidewalk Clearing</li>
+                            <li><i class="fa-solid fa-circle-check"></i>Snow Hauling & Stacking</li>
+                        </ul>
+                    </div>
+                    <div class="servicePage-img-group">
+                        <img src="{% static 'assets/slide1.jpg' %}" alt="">
+                        <img src="{% static 'assets/slide2.jpg' %}" alt="">
+                    </div>
+                    <div class="servicePage-subtitle">How to Benefit</div>
+                    <div class="servicePage-text">
+                        Unde omnis iste natus error voluptatem accusantium doloremque laudantium totam rem aperiam eaque
+                        quae abillo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemenim
+                        spsam voluptatem quia voluptas sit aspernatur aut odit fugit, sed quia consequunture
+                    </div>
+                </div>
+                <div class="servicePage-right">
+                    <div class="servicePage-list-box">
+                        <div class="servicePage-list-box-title">Xidmətlər siyahısı</div>
+                        <div class="servicePage-list-box-hr"></div>
+                        <div class="servicePage-list-box-item"><a href="">Həyət Təmizliyi</a><i
+                                class="fa-solid fa-angles-right"></i></div>
+                        <div class="servicePage-list-box-item"><a href="">Bağ Makiyajı</a><i
+                                class="fa-solid fa-angles-right"></i></div>
+                        <div class="servicePage-list-box-item"><a href="">Ətrafın abadlaşdırılması</a><i
+                                class="fa-solid fa-angles-right"></i></div>
+                        <div class="servicePage-list-box-item"><a href="">Çəmən biçən</a><i
+                                class="fa-solid fa-angles-right"></i></div>
+                        <div class="servicePage-list-box-item"><a href="">Dekorativ Bitkilər</a><i
+                                class="fa-solid fa-angles-right"></i></div>
+                        <div class="servicePage-list-box-item"><a href="">Həyət Təmiri</a><i
+                                class="fa-solid fa-angles-right"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
+
+
+

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+<header>
+        {% include "../include/topNav.html" %}
+        <div class="aboutPage">
+            <div class="aboutPage-content">
+                {% include "../include/header-nav.html" %}
+                <div class="aboutPage-greeting">
+                    <h1>{{ product.title }}</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section>
+         <div class="shopBox-detailPage">
+                <div class="shopBox-detailPage-content">
+                    <div class="shopBox-detailPage-title">{{ product.title }}</div>
+
+                    <div class="shopBox-detailPage-img">
+                        <img src="{{ product.image.url }}" alt="{{ product.title }}">
+                    </div>
+                    <div class="shopBox-detailPage-right">
+                        <div class="shopBox-detailPage-order">
+                            <div class="shopBox-detailPage-price">₼{{ product.price }}</div>
+                            <div class="shopBox-detailPage-btn"><a href=""><i class="fa-solid fa-cart-shopping"></i>Sifariş
+                            Et</a></div>
+                        </div>
+                        <div class="shopBox-detailPage-description">
+                            {{ product.description }}
+                        </div>
+                    </div>
+                     <form method="post" action="{% url 'order_product' slug=product.url %}">
+                        {% csrf_token %}
+
+                        <input type="text" name="name" required>
+
+                        <input type="text" name="surname" required>
+
+                        <input type="number" name="phone_number" required>
+
+                        <button type="submit">Place Order</button>
+                      </form>
+                </div>
+            </div>
+    </section>
+
+{% endblock %}
+
+
+

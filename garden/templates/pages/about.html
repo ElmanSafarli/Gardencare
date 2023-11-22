@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<header>
+        {% include "../include/topNav.html" %}
+        <div class="aboutPage">
+            <div class="aboutPage-content">
+               {% include "../include/header-nav.html" %}
+                <div class="aboutPage-greeting">
+                    <h1>Bizim haqqımızda</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+<section id="aboutPage-2">
+        <div class="aboutPage-2">
+            <div class="aboutPage-2-content">
+                <div class="aboutPage-2-left">
+                    <div class="aboutPage-2-section"><i class="fa-solid fa-leaf"></i>Bağçılıq haqqında</div>
+                    <div class="aboutPage-2-title">Biz Sizin Bağçanıza & <br>Abadlıq işlərinə baxırıq</div>
+                </div>
+                <div class="aboutPage-2-right">
+                    <div class="aboutPage-2-text">Ancaq bütün bunların onu tərifləyənlərin ittiham ləzzətindən və
+                        ağrılarından haradan qaynaqlandığını görə biləsiniz deyə, mən bütün məsələni və həqiqəti kəşf
+                        edənlər olduğu deyilənləri və onların necə bir həqiqət olduğunu açıqlayacağam. xoşbəxt həyatın
+                        memarı</div>
+                    <div class="aboutPage-2-list">
+                        <ul>
+                            <li><img src="{% static 'assets/verify.png' %}" alt="">Bağçılıq təcrübəmiz var</li>
+                            <li><img src="{% static 'assets/verify.png' %}" alt="">Mükafat qazanan və peşəkar...</li>
+                        </ul>
+                    </div>
+                    <div class="aboutPage-2-btn"><a href="">Daha çox</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="aboutPage-3">
+            <div class="aboutPage-3-content">
+                <div class="aboutPage-3-img-group">
+                    <img src="{% static 'assets/slide3.jpg' %}" alt="">
+                    <img src="{% static 'assets/slide2.jpg' %}" alt="">
+                    <img src="{% static 'assets/slide4.jpg' %}" alt="">
+                </div>
+                <div class="aboutPage-3-box-group">
+                    <div class="aboutPage-3-box">
+                        <div class="aboutPage-3-box-img">
+                            <img src="{% static 'assets/mission.png' %}" alt="">
+                        </div>
+                        <div class="aboutPage-3-box-title">Our Mission</div>
+                        <div class="aboutPage-3-box-text">Sed persiciatis unde omnis esnatu volunteer accusantium
+                            doloreue laudan totam</div>
+                        <div class="aboutPage-3-link"><a href="">Ətraflı oxu<i
+                                    class="fa-solid fa-arrow-right-long"></i></a></div>
+                    </div>
+                    <div class="aboutPage-3-box">
+                        <div class="aboutPage-3-box-img"><img src="{% static 'assets/goal.png' %}" alt=""></div>
+                        <div class="aboutPage-3-box-title">Our Vision</div>
+                        <div class="aboutPage-3-box-text">Sed persiciatis unde omnis esnatu volunteer accusantium
+                            doloreue laudan totam</div>
+                        <div class="aboutPage-3-link"><a href="">Ətraflı oxu<i
+                                    class="fa-solid fa-arrow-right-long"></i></a></div>
+                    </div>
+                    <div class="aboutPage-3-box">
+                        <div class="aboutPage-3-box-img"><img src="{% static 'assets/planning.png' %}" alt=""></div>
+                        <div class="aboutPage-3-box-title">Plan & Goals</div>
+                        <div class="aboutPage-3-box-text">Sed persiciatis unde omnis esnatu volunteer accusantium
+                            doloreue laudan totam</div>
+                        <div class="aboutPage-3-link"><a href="">Ətraflı oxu<i
+                                    class="fa-solid fa-arrow-right-long"></i></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="aboutPage-4">
+            <div class="aboutPage-4-content">
+                <div class="aboutPage-4-left">
+                    <img src="{% static 'assets/aboutPage1.jpg' %}" alt="">
+                </div>
+                <div class="aboutPage-4-right">
+                    <div class="aboutPage-4-right-content">
+                        <div class="aboutPage-4-section"><i class="fa-solid fa-leaf"></i>Müasir Bağçılıq</div>
+                        <div class="aboutPage-4-title">Biz landşaft & ağac əkilməsi təklif edirik</div>
+                        <div class="aboutPage-4-text">Sed ut perspiciatis unde omnis iste natus voluptatem accusantiue
+                            doloremque laudantium totam rem aperiam, eaque ipsa quae abilloy inventore veritatis et
+                            quasi
+                            architecto beatae vitae dicta sunt</div>
+                        <div class="aboutPage-4-box">
+                            <div class="aboutPage-4-box-img"><img src="{% static 'assets/landscape.png' %}" alt=""></div>
+                            <div class="aboutPage-4-box-title">Müasir Bağçılıq & Ekspert Qrupu</div>
+                            <div class="aboutPage-4-box-text">On the other hand, we denounce with righteous indignation
+                                dislike beguiled and demoralized</div>
+                        </div>
+                        <div class="aboutPage-4-box">
+                            <div class="aboutPage-4-box-img"><img src="{% static 'assets/landscape.png' %}" alt=""></div>
+                            <div class="aboutPage-4-box-title">Ağac plantasiyaları & landşaft</div>
+                            <div class="aboutPage-4-box-text">On the other hand, we denounce with righteous indignation
+                                dislike beguiled and demoralized</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="aboutPage-5">
+            <div class="aboutPage-5-content">
+                <div class="aboutPage-5-team-group">
+                    <div class="aboutPage-5-team-box">
+                        <div class="aboutPage-5-team-box-img"><img src="{% static 'assets/team1.jpg' %}" alt=""></div>
+                        <div class="aboutPage-5-team-box-title">Benjamin S. Hughes</div>
+                        <div class="aboutPage-5-team-box-job">Senior Gardener</div>
+                        <div class="aboutPage-5-team-box-social">
+                            <div class="aboutPage-5-team-box-social-item"><a href=""><i
+                                        class="fa-brands fa-instagram"></i></a></div>
+                            <div class="aboutPage-5-team-box-social-item"><a href=""><i
+                                        class="fa-brands fa-whatsapp"></i></a></div>
+                        </div>
+                    </div>
+                    <div class="aboutPage-5-team-box">
+                        <div class="aboutPage-5-team-box-img"><img src="{% static 'assets/team2.jpg' %}" alt=""></div>
+                        <div class="aboutPage-5-team-box-title">Michael K. Greenwald</div>
+                        <div class="aboutPage-5-team-box-job">Senior Gardener</div>
+                        <div class="aboutPage-5-team-box-social">
+                            <div class="aboutPage-5-team-box-social-item"><a href=""><i
+                                        class="fa-brands fa-instagram"></i></a></div>
+                            <div class="aboutPage-5-team-box-social-item"><a href=""><i
+                                        class="fa-brands fa-whatsapp"></i></a></div>
+                        </div>
+                    </div>
+                    <div class="aboutPage-5-team-box">
+                        <div class="aboutPage-5-team-box-img"><img src="{% static 'assets/team3.jpg' %}" alt=""></div>
+                        <div class="aboutPage-5-team-box-title">Joshua M. Miranda</div>
+                        <div class="aboutPage-5-team-box-job">Junior Gardener</div>
+                        <div class="aboutPage-5-team-box-social">
+                            <div class="aboutPage-5-team-box-social-item"><a href=""><i
+                                        class="fa-brands fa-instagram"></i></a></div>
+                            <div class="aboutPage-5-team-box-social-item"><a href=""><i
+                                        class="fa-brands fa-whatsapp"></i></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+
+

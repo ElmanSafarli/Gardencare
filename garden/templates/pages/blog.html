@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+<header>
+        {% include "../include/topNav.html" %}
+        <div class="aboutPage">
+            <div class="aboutPage-content">
+                {% include "../include/header-nav.html" %}
+                <div class="aboutPage-greeting">
+                    <h1>Yeni xəbərlər</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<section>
+       {% if blogs %}
+            <div class="blogPage-box-group">
+                {% for blog in blogs %}
+                    <div class="blogPage-box">
+                        <div class="blogPage-box-img">
+                            <img src="{{ blog.poster.url }}" alt="">
+                        </div>
+                        <div class="blogPage-box-info">
+                            <div class="blogPage-box-time">{{ blog.pub_date }}</div>
+                            <div class="blogPage-box-title">
+                                <a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a>
+                            </div>
+                            <div class="blockPage-box-text">{{ blog.description|slice:":74" }}{% if blog.description|length > 74 %}...{% endif %}</div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="no-info">
+                <img src="{% static 'assets/about2.jpg' %}" alt="">
+                <h1>Hələlik xəbər yoxdur.</h1>
+                <p>Xəbərin olmaması sadəcə olaraq fırtına öncəsi sakitlikdir və biz informasiyanın tezliklə görünəcəyi, özü
+                ilə bilik və kəşf dalğası gətirəcəyi bir gələcəyin astanasında dayanırıq. Dünya dəyişmə ərəfəsindədir və
+                xəbərlər irəliyə doğru yol göstərən mayak kimidir. Ətrafımızdakı dünya haqqında anlayışımızı
+                dəyişdirəcək yeniləmələr üçün bizi izləyin.</p>
+            </div>
+        {% endif %}
+    </section>
+
+{% endblock %}
+
+
+

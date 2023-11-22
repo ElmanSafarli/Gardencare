@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+<header>
+        {% include "../include/topNav.html" %}
+        <div class="aboutPage">
+            <div class="aboutPage-content">
+                {% include "../include/header-nav.html" %}
+                <div class="aboutPage-greeting">
+                    <h1>Məhsullar</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="shopBox-content">
+            <div class="shopBox-group">
+                {% for product in products %}
+                <div class="shopBox">
+                    <div class="shopBox-img">
+                        <img src="{{ product.image.url }}" alt="{{ product.title }}">
+                    </div>
+                    <div class="shopBox-info">
+                        <div class="shopBox-top">
+                            <div class="shopBox-title">{{ product.title }}</div>
+                            <div class="shopBox-price">₼{{ product.price }}</div>
+                        </div>
+                        <div class="shopBox-text">
+                            {{ product.description|slice:":150" }}{% if product.description|length > 150 %}...{% endif %}
+                        </div>
+                        <div class="shopBox-btn">
+                            <a href="{{ product.get_absolute_url }}">Sifariş Et</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+        </div>
+    </section>
+
+{% endblock %}
+
+
+

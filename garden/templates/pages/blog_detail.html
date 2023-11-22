@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+<header>
+        {% include "../include/topNav.html" %}
+        <div class="aboutPage">
+            <div class="aboutPage-content">
+                {% include "../include/header-nav.html" %}
+                <div class="aboutPage-greeting">
+                    <h1>Yeni xəbərlər</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="blogPage-More">
+            <div class="blogPage-more-content">
+                <div class="porduct-more-detail-box">
+                    <div class="blogPage-more-info">
+                        <div class="blogPage-box-time">{{ blog.pub_date }}</div>
+                        <div class="blogPage-box-title"><a href="">{{ blog.title }}.</a>
+                        </div>
+                        <div class="blockPage-box-text">{{ blog.description }}</div>
+                        <div class="blog-more-img">
+                            <img src="{{ blog.poster.url }}" alt="{{ blog.title }}">
+                        </div>
+                    </div>
+                </div>
+                <div class="porduct-more-additional-products">
+                    <div class="porduct-more-recently-used-group">
+                        <h2>Daha çox</h2>
+                         {% for blog in blogs %}
+                        <div class="porduct-more-recently-used-box">
+                            <div class="porduct-more-recently-used-img"><img src="{{ blog.poster.url }}" alt=""></div>
+                            <div class="porduct-more-recently-used-box-right">
+                                <div class="porduct-more-recently-used-time">{{ blog.pub_date }}</div>
+                                <div class="porduct-more-recently-used-title">
+                                    <a href="{{ blog.get_absolute_url }}">{{ blog.title|slice:":74" }}{% if blog.title|length > 74 %}...{% endif %}</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}
+
+
+

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load custom_filters %}
+{% block body %}
+<header>
+        {% include "../include/topNav.html" %}
+        <div class="aboutPage">
+            <div class="aboutPage-content">
+                {% include "../include/header-nav.html" %}
+                <div class="aboutPage-greeting">
+                    <h1>Tarif planı</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+ <section>
+        <div class="pricingPage">
+            <div class="pricingPage-content">
+                <div class="pricingPage-section"><i class="fa-solid fa-leaf"></i>Tarif planı</div>
+                <div class="pricingPage-title">Ağıllı qiymət paketi</div>
+                <div class="pricing-box-group">
+                    {% for package in pricing_packages %}
+                    <div class="pricing-box">
+                        <div class="pricing-box-title">{{ package.title }}</div>
+                        <div class="pricing-box-hr"></div>
+                        <div class="pricing-box-list">
+                            <ul>
+                                 {% for sentence in package.description|split_by_dot %}
+                                    {% if sentence %}
+                                        <li><i class="fa-solid fa-circle-check"></i>{{ sentence|safe }}</li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="pricing-box-price">{{ package.price }} <span>/ {{ package.duration }}</span></div>
+                        <div class="pricing-box-btn"><a href="{{ package.link }}">Paket seçin</a></div>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% include "../include/photo-gallery.html" %}
+
+
+{% endblock %}
+
+
+

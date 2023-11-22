@@ -1,0 +1,91 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<header>
+        {% include "../include/topNav.html" %}
+        <div class="aboutPage">
+            <div class="aboutPage-content">
+                {% include "../include/header-nav.html" %}
+                 <div class="aboutPage-greeting">
+                    <h1>Bizimlə Əlaqə</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <section>
+        <div class="contact-us">
+            <div class="contact-us-content">
+                <div class="contact-us-box-group">
+                    <div class="contact-us-box">
+                        <div class="contact-us-box-icon"><img src="{% static 'assets/location.png' %}" alt=""></div>
+                        <div class="contact-us-box-item">Location</div>
+                        <div class="contact-us-box-value">55 Main Street, 2nd Floor Melbourne, Australia</div>
+                    </div>
+                    <div class="contact-us-box">
+                        <div class="contact-us-box-icon"><img src="{% static 'assets/mail.png' %}" alt=""></div>
+                        <div class="contact-us-box-item">Email Address</div>
+                        <div class="contact-us-box-value">support@gmail.com</div>
+                    </div>
+                    <div class="contact-us-box">
+                        <div class="contact-us-box-icon"><img src="{% static 'assets/phone.png' %}" alt=""></div>
+                        <div class="contact-us-box-item">Phone No</div>
+                        <div class="contact-us-box-value">+000 (123) 456 88</div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <div class="contact-form-top">
+                        <div class="contact-section"><i class="fa-solid fa-leaf"></i>Bizimlə əlaqə saxlayın</div>
+                        <div class="contact-title">Bizimlə işləməyə hazırsınız?</div>
+                    </div>
+                    <div class="contact-form-bottom">
+                        <div class="contact-form-map">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3773.379714643291!2d50.13792807733843!3d40.379665252399384!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4030678e4d723e8d%3A0x7ddbd91efac3bf52!2sGarden%20Care!5e1!3m2!1sru!2saz!4v1700572502319!5m2!1sru!2saz"
+                                style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        <div class="contact-form-form">
+                            <div class="form-contact">
+                               <form method="post" action="{% url 'contact' %}">
+                                {% csrf_token %}
+                                <div class="form-contact-input">
+                                    <i class="fa-solid fa-user"></i>
+                                    <input type="text" name="name" placeholder="Ad Soyad" required>
+                                </div>
+                                <div class="form-contact-input">
+                                    <i class="fa-solid fa-envelope"></i>
+                                    <input type="email" name="email" placeholder="Email adres" required>
+                                </div>
+                                <div class="form-contact-input">
+                                    <i class="fa-solid fa-phone"></i>
+                                    <input type="text" name="phone_number" placeholder="+994 70 000 00 00" required>
+                                </div>
+                                <div class="form-contact-input">
+                                    <i class="fa-solid fa-message"></i>
+                                    <textarea name="message_text" placeholder="Mətn" required></textarea>
+                                </div>
+                                <div class="form-contact-btn">
+                                    <button type="submit">Göndər</button>
+                                </div>
+                            </form>
+
+                            {% if form_submitted %}
+                                <p>Thank you for your submission!</p>
+                            {% endif %}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
+
+
+

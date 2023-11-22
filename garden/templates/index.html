@@ -1,0 +1,231 @@
+
+{% extends 'base.html' %}
+
+{% load static %}
+{% block body %}
+<header>
+        {% include "./include/topNav.html" %}
+        <div class="header">
+            <div class="header-content">
+               {% include "./include/header-nav.html" %}
+                <div class="header-info-group">
+                    <div class="header-info-top">
+                        <div class="header-info-hr"></div>
+                        <p>Gözəl Bağçılıq</p>
+                    </div>
+                    <div class="header-title">
+                        Bağçılıq & <br> Landşaft
+                    </div>
+                    <div class="header-btn-group">
+                        <button class="header-more-btn">Ətraflı oxu</button>
+                        <button class="header-work-btn">Necə işləyir</button>
+                    </div>
+                    <div class="header-counter">
+                        <div class="header-counter-img-group">
+                            <img src="{% static 'assets/headerCount1.jpeg' %}" alt="">
+                            <img src="{% static 'assets/headerCount2.jpeg' %}" alt="">
+                            <img src="{% static 'assets/headerCount3.jpeg' %}" alt="">
+                            <img src="{% static 'assets/headerCount4.jpeg' %}" alt="">
+                        </div>
+                        <div class="header-counter-value">
+                            <span id="counter">0+</span>
+                            <div class="">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+
+                        </div>
+                        <div class="header-counter-text">Müştəri rəyləri</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="slider">
+        <div class="slider">
+            <div class="slider-item">
+                <img src="{% static 'assets/slide1.jpg' %}" alt="Image 1">
+            </div>
+            <div class="slider-item"><img src="{% static 'assets/slide2.jpg' %}" alt="Image 2"></div>
+            <div class="slider-item"><img src="{% static 'assets/slide3.jpg' %}" alt="Image 3"></div>
+            <div class="slider-item"><img src="{% static 'assets/slide4.jpg' %}" alt="Image 4"></div>
+            <div class="slider-item"><img src="{% static 'assets/slide5.jpg' %}" alt="Image 5"></div>
+            <div class="slider-item"><img src="{% static 'assets/slide6.jpg' %}" alt="Image 6"></div>
+            <!-- Add more slides as needed -->
+        </div>
+    </section>
+
+    <section>
+        <div class="about">
+            <div class="about-content">
+                <div class="abpout-left">
+                    <div class="abpout-left-top">
+                        <img src="{% static 'assets/about1.jpg' %}" class="fadeInImageFast" alt="">
+                        <div class="abpout-left-top-text">
+                            <h1>25+</h1>
+                            <p>Years Of <br> Experience</p>
+                        </div>
+                    </div>
+                    <div class="abpout-left-bottom">
+                        <img src="{% static 'assets/about2.jpg' %}" class="fadeInImageFast" alt="">
+                        <img src="{% static 'assets/about3.jpg' %}" class="fadeInImageSlow" alt="">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="about-right">
+                    <div class="about-section"><i class="fa-solid fa-leaf"></i>Bizim Haqqımızda</div>
+                    <div class="about-title animate-first">Biz Sizin Bağçanıza & Abadlıq <br> işlərinə baxırıq</div>
+                    <div class="about-text animate-first">Amma görə biləsiniz ki, dərdi ittiham edən və tərifləyən bütün
+                        könüllülər
+                        hər şeyi, həqiqəti kəşf edən və sanki xoşbəxt həyatın memarı olan ondan olan hər şeyi haradan
+                        açır.</div>
+                    <div class="about-list">
+                        <ul>
+                            <li><img src="{% static 'assets/verify.png' %}" alt="">Bağçılıq təcrübəmiz var</li>
+                            <li><img src="{% static 'assets/verify.png' %}" alt="">Biz sizin ehtiyaclarınıza uyğunlaşırıq</li>
+                        </ul>
+                    </div>
+                    <div class="about-btn fadeInImageFast">
+                        <a href="/about-us">Ətraflı oxu</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="whywe">
+        <div class="whywe">
+            <div class="whywe-content">
+                <div class="whywe-section"><i class="fa-solid fa-leaf"></i>Niyə bizi seçirlər?</div>
+                <div class="whywe-title animate-first">Biz mükafat qazanan bağbanıq</div>
+                <img src="{% static 'assets/whyweTree.png' %}" class="whyweTree1" alt="">
+                <img src="{% static 'assets/whyweTree.png' %}" class="whyweTree2" alt="">
+                <div class="whywe-slider">
+                    <div class="whyweslider-left">
+                        <div class="whyweslider-navigate">
+                            <a href="#" class="navigateLink" data-target="navigate1">2018-ci ildən buradayıq!</a>
+                            <a href="#" class="navigateLink" data-target="navigate2">Fəlsəfə</a>
+                        </div>
+                        <div id="navigate1" class="whyweslider-navigate-value">
+                            <p>Amma ləzzəti ittiham edənlərin, dərdi tərifləyənlərin xətasının haradan qaynaqlandığını
+                                görə biləsiniz deyə, mən bütün məsələni açıqlayacağam və həqiqəti kəşf edən ustad,
+                                mübarək həyatın memarı üçün deyilənləri izah edəcəyəm.</p>
+                            <div class="whyweslider-navigate-value-top">
+                                <img src="{% static 'assets/whywe2.jpg' %}" alt="">
+                                <ul>
+                                    <li><img src="{% static 'assets/verify.png' %}" alt="">Etibarlı bağçılıq tərəfdaşları</li>
+                                    <li><img src="{% static 'assets/verify.png' %}" alt="">Çatdırılma qiyməti aşağıdır</li>
+                                    <li><img src="{% static 'assets/verify.png' %}" alt="">Peşəkar komanda üzvü</li>
+                                    <li><img src="{% static 'assets/verify.png' %}" alt="">Mükafat qazanan şirkət</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="navigate2" class="whyweslider-navigate-value">
+                            <p>Amma ləzzəti ittiham edənlərin, dərdi tərifləyənlərin xətasının haradan qaynaqlandığını
+                                görə biləsiniz deyə, mən bütün məsələni açıqlayacağam və həqiqəti kəşf edən ustad,
+                                mübarək həyatın memarı üçün deyilənləri izah edəcəyəm.</p>
+                            <div class="whyweslider-navigate-value-top">
+                                <img src="{% static 'assets/whywe.jpg' %}" alt="">
+                                <ul>
+                                    <li><img src="{% static 'assets/verify.png' %}" alt="">Etibarlı bağçılıq tərəfdaşları</li>
+                                    <li><img src="{% static 'assets/verify.png' %}" alt="">Çatdırılma qiyməti aşağıdır</li>
+                                    <li><img src="{% static 'assets/verify.png' %}" alt="">Peşəkar komanda üzvü</li>
+                                    <li><img src="{% static 'assets/verify.png' %}" alt="">Mükafat qazanan şirkət</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="whyweslider-right fadeInImageFast">
+                        <img src="{% static 'assets/whywe.jpg' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process">
+        <div class="process">
+            <div class="procces-section"><i class="fa-solid fa-leaf"></i>İş prosesi</div>
+            <div class="process-title animate-first">
+                Bağçılıqda Necə İşləyirik
+            </div>
+            <div class="process-content">
+                <div class="process-box">
+                    <div class="process-top">Step 01</div>
+                    <i class="fa-solid fa-mountain-sun"></i>
+                    <h1>Choose & <br> Landscape</h1>
+                    <p>Reis ipsum suspendisse ultrices gravida. Risus commodo viverra.</p>
+                    <img src="{% static 'assets/zigzag.png' %}" alt="">
+                </div>
+                <div class="process-box">
+                    <div class="process-top">Step 02</div>
+                    <i class="fa-solid fa-sun-plant-wilt"></i>
+                    <h1>Design and <br> Planting</h1>
+                    <p>Reis ipsum suspendisse ultrices gravida. Risus commodo viverra.</p>
+                    <img src="{% static 'assets/zigzag.png' %}" alt="">
+                </div>
+                <div class="process-box">
+                    <div class="process-top">Step 03</div>
+                    <i class="fa-solid fa-microscope"></i>
+                    <h1>Completion & <br> Testing</h1>
+                    <p>Reis ipsum suspendisse ultrices gravida. Risus commodo viverra.</p>
+                    <img src="{% static 'assets/zigzag.png' %}" alt="">
+                </div>
+                <div class="process-box">
+                    <div class="process-top">Step 04</div>
+                    <i class="fa-solid fa-truck"></i>
+                    <h1>Transportation & <br> Maintenance</h1>
+                    <p>Reis ipsum suspendisse ultrices gravida. Risus commodo viverra.</p>
+                    <img src="{% static 'assets/zigzag.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% include "./include/photo-gallery.html" %}
+
+    <section id="about2">
+        <div class="about2">
+            <div class="about2-content">
+                <div class="about2-left">
+                    <img src="{% static 'assets/hbg3.jpg' %}" alt="">
+                </div>
+                <div class="about2-right">
+                    <div class="about2-section"><i class="fa-solid fa-leaf"></i>Müasir Bağçılıq</div>
+                    <div class="about2-title">Landşaft & Ağac plantasiyaları <br> təklif edirik</div>
+                    <div class="about2-text">Risus commodo viverra. Lorem ipsum dolor sit amet, <br> consectetur
+                        adipiscing.
+                        Quis ipsum suspendisse <br> ultrices gravida.</div>
+                    <div class="about2-link-group">
+                        <div class="about2-box">
+                            <div class="about2-box-top">
+                                <div class="about2-box-icon"><img src="{% static 'assets/landscape.png' %}" alt=""></div>
+                                <div class="about2-box-link"><img src="{% static 'assets/right-arrow.png' %}" alt=""></div>
+                            </div>
+                            <div class="about2-box-title">Choose & Landscape</div>
+                            <div class="about2-box-text">Reis ipsum suspendisse ultrices gravida. Risus...</div>
+                        </div>
+                        <div class="about2-box">
+                            <div class="about2-box-top">
+                                <div class="about2-box-icon"><img src="{% static 'assets/checklist.png' %}" alt=""></div>
+                                <div class="about2-box-link"><img src="{% static 'assets/right-arrow.png' %}" alt=""></div>
+                            </div>
+                            <div class="about2-box-title">Completion & Testing</div>
+                            <div class="about2-box-text">Integer mollis viverra nibh, mollis sollicitudin...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+{% endblock %}
+
+
+
