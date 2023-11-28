@@ -221,3 +221,12 @@ priceInput.forEach((input) => {
 });
 
 
+function contactBlock() {
+    var block = document.getElementById('contactBoxRegister');
+    block.style.display = block.style.display === 'none' ? 'block' : 'none';
+}
+
+function closeBlock() {
+    var block = document.getElementById('popupBlock');
+    block.style.display = 'none';
+}

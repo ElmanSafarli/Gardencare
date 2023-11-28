@@ -10,7 +10,8 @@
                         <a href=""><i class="fa-brands fa-facebook-f"></i></a>
                         <a href=""><i class="fa-brands fa-twitter"></i></a>
                         <a href=""><i class="fa-brands fa-youtube"></i></a>
-                        <a href=""><i class="fa-brands fa-pinterest-p"></i></a>
+                        <a href="{% url 'cart_view' %}"><i class="fa-solid fa-basket-shopping"></i></a>
+                        <a href="{% url 'login' %}"><i class="fa-solid fa-right-to-bracket"></i></a>
                     </div>
                 </div>
                 <div class="middle-nav-content">
@@ -28,7 +29,7 @@
                         <div class="middle-nav-item-icon"><i class="fa-solid fa-envelopes-bulk"></i></div>
                         <div class="middle-nav-item-info">
                             <div class="middle-nav-item-info-title">E-poçt</div>
-                            <div class="middle-nav-item-info-value">Info@gadden.com</div>
+                            <div class="middle-nav-item-info-value">İnfo@gardencare.az</div>
                         </div>
                     </div>
                     <div class="middle-nav-item">
@@ -62,33 +63,20 @@
                                 <ul class="sidebar-menu">
                                     <li class="treeview">
                                         <a href="#">
-                                            <i class="fa-solid fa-file-lines"></i> <span>Pages</span> <i
+                                            <i class="fa-solid fa-file-lines"></i> <span>Səhifələr</span> <i
                                                 class="fa fa-angle-left pull-right"></i>
                                         </a>
                                         <ul class="treeview-menu">
-                                            <li><a href="#"><i class="fa-brands fa-pagelines"></i>Bizim haqqımızda</a>
+                                            <li><a href="/about-us"><i class="fa-brands fa-pagelines"></i>Bizim haqqımızda</a>
                                             </li>
-                                            <li><a href="#"><i class="fa-brands fa-pagelines"></i>Bizim komanda</a></li>
-                                            <li><a href="#"><i class="fa-brands fa-pagelines"></i>Komanda
-                                                    Təfərrüatları</a></li>
-                                            <li><a href="#"><i class="fa-brands fa-pagelines"></i>Rəylər</a></li>
-                                            <li><a href="#"><i class="fa-brands fa-pagelines"></i>Qiymət Planı</a></li>
-                                            <li><a href="#"><i class="fa-brands fa-pagelines"></i>Bizimlə əlaqə
+                                            <li><a href="/blog"><i class="fa-brands fa-pagelines"></i>Xəbərlər</a></li>
+                                            <li><a href="/price"><i class="fa-brands fa-pagelines"></i>Qiymət Planı</a></li>
+                                            <li><a href="/contact"><i class="fa-brands fa-pagelines"></i>Bizimlə əlaqə
                                                     saxlayın</a>
                                             </li>
-                                        </ul>
-                                    </li>
-                                    <li class="treeview">
-                                        <a href="#">
-                                            <i class="fa-solid fa-tree"></i> <span>Xidmətlər</span> <i
-                                                class="fa fa-angle-left pull-right"></i>
-                                        </a>
-                                        <ul class="treeview-menu">
-                                            <li><a href="#"><i class="fa-brands fa-pagelines"></i> Bütün Xidmətlər</a>df
-
-                                            </li>
-                                            <li><a href="#"><i class="fa-brands fa-pagelines"></i> Xidmət
-                                                    Təfərrüatları</a></li>
+                                            <li><a href="/services"><i class="fa-brands fa-pagelines"></i>Servislərimiz</a></li>
+                                            <li><a href="/blog"><i class="fa-brands fa-pagelines"></i>Portfolio</a></li>
+                                            <li><a href="/shop"><i class="fa-brands fa-pagelines"></i>Mağaza</a></li>
                                         </ul>
                                     </li>
                                 </ul>

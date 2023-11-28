@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'app',
+    'accounts.apps.AccountsConfig',
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -130,7 +132,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-TELEGRAM = {
-    'bot_token': '6593345007:AAFkEZnGwUWWvFX1g6K72lAY4PjQd6c5Q6I',
-    'channel_name': '1494087225',
-}
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'

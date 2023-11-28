@@ -1,11 +1,11 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic import TemplateView, ListView, DetailView
+from django.shortcuts import render
+from django.views.generic import TemplateView, DetailView
 from .models import PricingPackage, BlogPost, Product, Order
-from .forms import OrderForm
-from .telegram_bot import send_order_to_telegram
 from django.views import View
-from django.http import HttpResponse
 import requests
+
+
+
 class HomePageView(TemplateView):
     template_name = 'index.html'
 
@@ -24,7 +24,7 @@ class ContactPage(TemplateView):
         message_text = request.POST.get('message_text')
 
         # Send data to Telegram
-        message = f'New contact form submission:\nName: {name}\nEmail: {email}\nPhone Number: {phone_number}\nMessage: {message_text}'
+        message = f'Yeni müştəri zənginizi gözləyir:\nName: {name}\nEmail: {email}\nPhone Number: {phone_number}\nMessage: {message_text}'
         send_to_telegram(message)
 
         # You can add additional logic here if needed
@@ -62,6 +62,8 @@ class ProductDetailView(DetailView):
         return render(request, "pages/shop_detail.html", {'product': product})
 
 class OrderProductView(View):
+    template_name = 'pages/order_confirmation.html'
+
     def post(self, request, slug):
         product = Product.objects.get(url=slug)
         name = request.POST.get('name')
@@ -72,19 +74,19 @@ class OrderProductView(View):
         order = Order.objects.create(product=product, name=name, surname=surname, phone_number=phone_number)
 
         # Send data to Telegram
-        message = f'New order:\nProduct: {product.title}\nName: {name}\nSurname: {surname}\nPhone Number: {phone_number}'
+        message = f'Yeni sifariş:\nProduct: {product.title}\nName: {name}\nSurname: {surname}\nPhone Number: {phone_number}'
         send_to_telegram(message)
 
-        return redirect('product_detail', slug=product.url)
+        return render(request, self.template_name)
 
-def send_to_telegram(message):
+def send_to_telegram(message, first_name, last_name, phone_number, product_details, total_price):
     bot_token = '6593345007:AAFkEZnGwUWWvFX1g6K72lAY4PjQd6c5Q6I'
-    chat_id = '1494087225'  # Replace with your channel username
+    chat_id = '-1002137688664'
 
     telegram_api_url = f'https://api.telegram.org/bot{bot_token}/sendMessage'
     params = {
         'chat_id': chat_id,
-        'text': message,
+        'text': f'{message}\nAd: {first_name}\nSoyad: {last_name}\nƏlaqə nömrəsi: {phone_number}\nMəhsul haqqında: {product_details}\nYekun məbləğ: {total_price}',
     }
 
     response = requests.post(telegram_api_url, params=params)

@@ -1989,41 +1989,493 @@ body {
     margin-top: 20px;
 }
 
-.shopBox-detailPage-title {
-    font-size: 38px;
-    font-family: "Stem-BOld";
-    color: #0b3d2c;
-    margin: 12px 0;
-}
 
-.shopBox-detailPage-description {
-    font-size: 18px;
-    font-family: "Stem-Regular";
-    color: #787878;
-    margin-top: 12px;
-    width: 80%;
-}
-
-.shopBox-detailPage-content {
-    padding: 4% 8%;
-}
-
-.shopBox-detailPage-img {
-    width: 60%;
-    height: 580px;
-    overflow: hidden;
-    border-radius: 20px;
+.card-wrapper {
+    max-width: 1100px;
+    margin: 4% auto;
 }
 
 .shopBox-detailPage-img img {
     width: 100%;
+    display: block;
+}
+
+.img-display {
+    overflow: hidden;
+}
+
+.img-showcase img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.product-content {
+    padding: 2rem 1rem;
+}
+
+.product-title {
+    font-size: 3rem;
+    text-transform: capitalize;
+    font-family: "Stem-Bold";
+    position: relative;
+    color: #12263a;
+    margin: 1rem 0;
+}
+
+.product-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 4px;
+    width: 80px;
+    background: #12263a;
+}
+
+.product-price {
+    margin: 1rem 0;
+    font-size: 1rem;
+    font-family: "Stem-Medium";
+}
+
+.product-price span {
+    font-weight: 400;
+    font-family: "Stem-Regular";
+}
+
+.product-detail h2 {
+    text-transform: capitalize;
+    color: #12263a;
+    font-family: "Stem-Bold";
+    padding-bottom: 0.6rem;
+}
+
+.product-detail p {
+    font-size: 0.9rem;
+    padding: 0.3rem;
+    opacity: 0.8;
+    font-family: "Stem-Regular";
+}
+
+
+.purchase-info {
+    margin: 1.5rem 0;
+}
+
+.purchase-info input,
+.purchase-info .btn {
+    border: 1.5px solid #ddd;
+    border-radius: 25px;
+    text-align: center;
+    padding: 0.45rem 0.8rem;
+    outline: 0;
+    margin-right: 0.2rem;
+    margin-bottom: 1rem;
+}
+
+.purchase-info input {
+    width: 60px;
+}
+
+.purchase-info a {
+    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Stem-Regular";
+    border-radius: 20px;
+    font-size: 14px;
+    padding: 14px;
+}
+
+.purchase-info button {
+    background: #0B3D2C;
+    cursor: pointer;
+    color: #fff;
+    border: none;
+    font-family: "Stem-Regular";
+    border-radius: 20px;
+    font-size: 14px;
+    padding: 14px;
+}
+
+.purchase-info a:last-of-type {
+    background-color: #12263a;
+}
+
+.wrapper {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "nav-bar"
+        "box"
+        "footer";
+}
+
+.box-wrapper {
+    height: 630px;
+    position: relative;
+    display: none;
+}
+
+.close-button {
+    font-size: 30px;
+    position: relative;
+    left: 50%;
+}
+
+/* === Contact form ===*/
+.box {
+    grid-area: box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background-color: #FFF;
+    padding: 40px;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, .1);
+    /* box-shadow: 0 30px 20px rgba(0,0,0,.2); */
+    box-shadow: 0 3px 60px rgba(57, 73, 76, 0.35);
+
+}
+
+.box h2 {
+    margin: 0 0 40px;
+    padding: 0;
+    color: #222;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: "Stem-Medium";
+}
+
+.box input {
+    padding: 10px 0;
+    margin-bottom: 30px;
+    font-family: "Stem-Regular";
+}
+
+.box textarea {
+    height: 80px;
+    padding: 10px 0;
+    margin-bottom: 40px;
+}
+
+.box input, .box textarea {
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: none;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #999;
+    font-family: "Stem-Regular";
+}
+
+.box textarea {
+    margin-bottom: 20px;
+}
+
+.box input[type="submit"] {
+    font-size: 1.1em;
+    border-bottom: none;
+    cursor: pointer;
+    background: #37a000;
+    color: #FFF;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    font-family: "Stem-Medium";
+}
+
+.box form div {
+    position: relative;
+}
+
+.box form div label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    color: #999;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.box input:focus~label, .box textarea:focus~label,
+.box input:valid~label, .box textarea:valid~label {
+    top: -12px;
+    left: 0;
+    color: #37a000;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.box input:focus~label, .box textarea:focus~label,
+.box input:valid, .box textarea:valid {
+    border-bottom: 2px solid #37a000;
+}
+
+.shop-products-group {
+    margin: 4% 8%;
+}
+
+.shop-products-box {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.shop-products-box-img img {
+    width: 94px;
+}
+
+.shop-products-box-title {
+    font-size: 18px;
+    font-weight: 700;
+    text-align: left;
+    width: 610px;
+    color: #0B3D2C;
+    font-family: "Stem-Medium";
+}
+
+.shop-products-box-price {
+    font-size: 18px;
+    font-weight: 500;
+    font-family: "Stem-Regular";
+}
+
+.remove-btn a {
+    text-decoration: none;
+    font-size: 22px;
+    color: #2a7d2e;
+}
+
+.shop-products-box-quanity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+}
+.shop-products-box-exorbitant-price{
+    font-family: "Stem-Medium";
+    font-size: 18px;
+    color: #0B3D2C;
+}
+.shop-products-box-quanity input {
+    width: 68px;
+    height: auto;
+    font-family: "Stem-Regular";
+}
+
+.shop-products-box-quanity button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.shop-products-box-quanity button img {
+    width: 30px;
+}
+
+.total-price {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    width: 100%;
+    flex-flow: row wrap;
+    background-color: #0B3D2C;
+    margin: 26px 0;
+}
+
+.total-price-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin: 12px;
+    font-family: "Stem-Bold";
+}
+
+.total-price-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin: 12px;
+    font-family: "Stem-Regular";
+}
+
+.empty-cart {
+    margin: 20px 0;
+}
+
+.empty-cart h1 {
+    font-family: "Stem-Bold";
+}
+
+.product-add-quantity {
+    display: none;
+}
+
+.product-add {
+    width: 100%;
+    font-size: 18px;
+    font-family: "Stem-Medium";
+    color: #0B3D2C;
+    margin-top: 10px;
+    border-radius: 20px;
+    height: 46px;
+    background-color: #FFF;
+    cursor: pointer;
+}
+.cart-form{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 40px 0;
+}
+.cart-form input{
+    border-radius: 10px;
+    padding: 10px 20px;
+    border: 4px solid #0B3D2C;
+    margin: 10px 0;
+}
+
+.cart-form button{
+    padding: 16px 30px;
+    background-color: #0B3D2C;
+    color: #fff;
+    font-family: "Stem-Medium";
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid #0B3D2C;
+    transition: 0.3s all;
+    margin: 10px 0;
+}
+.cart-form button:hover{
+    background-color: transparent;
+    color: #0B3D2C;
+}
+
+/* Style for authentication forms */
+.auth-form {
+    max-width: 400px;
+    margin: 2% auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
     transition: 0.3s all;
 }
 
-.shopBox-detailPage-img img:hover {
-    transform: scale(1.1);
+.auth-form h2 {
+    font-family: "Stem-Bold";
 }
 
+.auth-form p {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    font-family: "Stem-Regular";
+}
+
+.auth-form p span a {
+    text-decoration: none;
+    font-family: "Stem-Regular";
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form label {
+    font-weight: bold;
+    font-family: "Stem-Regular";
+}
+
+.form input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-family: "Stem-Regular";
+}
+
+.form button {
+    padding: 10px 20px;
+    background-color: #0B3D2C;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: "Stem-Medium";
+}
+
+/* Additional styling for login and signup forms */
+.login-form {
+    background-color: #fff;
+}
+
+.signup-form {
+    background-color: #fff;
+}
+
+
+/* Order thanks */
+.order-thanks {
+    padding: 8% 0;
+    text-align: center;
+}
+
+.order-thanks h1 {
+    font-family: "Stem-Medium";
+    color: #0B3D2C;
+}
+
+.order-thanks p {
+    font-family: "Stem-Regular";
+    margin-bottom: 40px;
+}
+
+.order-thanks a {
+    font-family: "Stem-Medium";
+    font-size: 20px;
+    text-decoration: none;
+    padding: 15px 30px;
+    background-color: #0B3D2C;
+    color: #fff;
+    border-radius: 20px;
+}
+
+@media screen and (min-width: 1101px) {
+    .card {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1.5rem;
+    }
+
+    .card-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .product-imgs {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .product-content {
+        padding-top: 0;
+    }
+
+    .img-showcase img {
+        width: 100%;
+    }
+}
 
 /* Service Page */
 .servicePage-content {
@@ -2674,6 +3126,9 @@ body {
         grid-template-columns: repeat(1, 1fr);
         padding: 8%;
     }
+    .cart-form{
+        margin: 20% 8%;
+    }
 }
 
 @media (max-width: 1001px) {
@@ -2986,6 +3441,9 @@ body {
 
     .blockPage-box-text {
         font-size: 14px;
+    }
+    .cart-form{
+        margin: 40% 8%;
     }
 }
 

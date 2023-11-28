@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+  <h2>Your Shopping Cart</h2>
+
+  {% if session_cart_items %}
+    <form id="cart-form" method="post" action="{% url 'confirm_cart' %}">
+      {% csrf_token %}
+      <ul id="cart-items">
+        {% for item in session_cart_items %}
+          <li class="cart-item" data-slug="{{ item.url }}" data-price="{{ item.price }}">
+            {% if item.image %}
+              <img src="{{ item.image.url }}" alt="{{ item.title }}" width="50" height="50">
+            {% endif %}
+            {{ item.title }} -
+            Quantity:
+            <input class="quantity-input" type="number" name="quantity_{{ item.url }}" value="{{ item.quantity }}" min="1">
+            <button class="remove-btn" data-slug="{{ item.url }}" type="button">Remove</button>
+            <br>
+            Price: {{ item.price }} USD each
+          </li>
+        {% endfor %}
+      </ul>
+
+      <hr>
+      <p>Total Price: <span id="final-price">0.00</span> USD</p>
+      <button type="button" id="confirm-button">Confirm Changes</button>
+    </form>
+  {% else %}
+    <p>Your cart is empty.</p>
+  {% endif %}
+
+  <script>
+    // Initialize session_cart if it doesn't exist
+    if (!window.session_cart) {
+      window.session_cart = {};
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const confirmButton = document.getElementById('confirm-button');
+
+      // Call updateFinalPrice() once to ensure correct initial display
+      updateFinalPrice();
+
+      confirmButton.addEventListener('click', function() {
+        // Add logic to submit the form or perform additional actions
+        submitForm();
+      });
+
+      // Add event listeners for the remove buttons
+      const removeButtons = document.querySelectorAll('.remove-btn');
+      removeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const slug = this.getAttribute('data-slug');
+          removeCartItem(slug);
+        });
+      });
+
+      function removeCartItem(slug) {
+        // Remove the corresponding item from the DOM
+        const cartItem = document.querySelector(`.cart-item[data-slug="${slug}"]`);
+        if (cartItem) {
+          cartItem.remove();
+        }
+
+        // Remove the item from the session cart
+        delete window.session_cart[slug];
+
+        // Update the displayed quantity and final price
+        updateFinalPrice();
+      }
+
+      function updateFinalPrice() {
+        const finalPriceElement = document.getElementById('final-price');
+        let finalPrice = 0;
+
+        // Calculate the final price based on the quantities and prices of items
+        const cartItems = document.querySelectorAll('.cart-item');
+        cartItems.forEach(item => {
+          const itemPrice = parseFloat(item.getAttribute('data-price'));
+          const itemQuantity = parseInt(item.querySelector('.quantity-input').value);
+
+          finalPrice += itemPrice * itemQuantity;
+        });
+
+        // Update the final price element
+        finalPriceElement.innerText = finalPrice.toFixed(2);
+      }
+
+      function submitForm() {
+        // Add logic to submit the form or perform additional actions
+        document.getElementById('cart-form').submit();
+      }
+    });
+  </script>
+{% endblock %}

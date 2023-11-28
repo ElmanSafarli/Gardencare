@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path
-from .views import HomePageView, PriceView, MovieView, MovieDetailView, ServicePage, ProductView, ProductDetailView, About, ContactPage, OrderProductView
+from .views import *
 
 urlpatterns = [
     path('', HomePageView.as_view(), name='home'),
@@ -15,6 +15,9 @@ urlpatterns = [
     path("shop/", ProductView.as_view()),
     path("shop/<slug:slug>/", ProductDetailView.as_view(), name="product_detail"),
     path('product/<slug:slug>/order/', OrderProductView.as_view(), name='order_product'),
+    # path("shop/<slug:slug>/add-to-cart/", AddToCartView.as_view(), name="add_to_cart"),
+    # path("cart/", CartView.as_view(), name="cart"),
+    # path('confirm-cart/', ConfirmCartView.as_view(), name='confirm_cart'),
 ]
 
 # Serve static and media files during development

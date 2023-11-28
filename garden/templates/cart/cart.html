@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+    <header>
+        {% include "../include/topNav.html" %}
+    </header>
+    <div class="shop-products-group">
+        <!-- Add a new input field for the phone number in your cart.html file -->
+        <form method="post" action="{% url 'cart_view' %}">
+            {% csrf_token %}
+            <div class="cart-form">
+                <div class="car-form-item">
+                    <label for="first_name">Ad:</label>
+                    <input type="text" id="first_name" name="first_name" required><br>
+                </div>
+
+                <div class="car-form-item">
+                    <label for="last_name">Soyad:</label>
+                    <input type="text" id="last_name" name="last_name" required><br>
+                </div>
+
+                <div class="car-form-item">
+                    <label for="phone_number">Əlaqə nömrəsi:</label>
+                    <input type="text" id="phone_number" name="phone_number" required><br>
+                </div>
+
+                <div class="car-form-item">
+                    <button type="submit">sifariş verin</button>
+                </div>
+
+            </div>
+
+        </form>
+
+        {% for item in cart_items %}
+                <div class="shop-products-box">
+                    <div class="shop-products-box-img">
+                        <img src="{{ item.product.image.url }}" alt="image">
+                    </div>
+                    <div class="shop-products-box-title">
+                        <p>{{ item.product }}</p>
+                    </div>
+                    <div class="shop-products-box-price">
+                        <p>₼{{ item.product.price }}</p>
+                    </div>
+                    <form method="GET" action="{% url 'update_cart' item.product.pk %}">
+                            <div class="shop-products-box-quanity">
+                                <input type="number" name="quantity" value="{{ item.quantity }}" min="1">
+                                <button type="submit">
+                                    <img src="{% static 'assets/refresh.png' %}">
+                                </button>
+                            </div>
+                    </form>
+                    <div class="shop-products-box-exorbitant-price">
+                        <p>₼{{ item.price }}</p>
+                    </div>
+                    <div class="remove-btn">
+                        <a href="{% url 'remove_from_cart' item.product.pk %}"><i class="fa-regular fa-trash-can"></i></a>
+                    </div>
+                </div>
+        {% empty %}
+            <div class="empty-cart">
+                <h1>Your cart is empty.</h1>
+            </div>
+        {% endfor %}
+        <div class="total-price">
+            <div class="total-price-title">Total price:</div>
+            <div class="total-price-value">₼{{ total_price }}</div>
+        </div>
+    </div>
+{% endblock %}

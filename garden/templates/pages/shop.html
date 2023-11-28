@@ -33,9 +33,15 @@
                         <div class="shopBox-btn">
                             <a href="{{ product.get_absolute_url }}">Sifariş Et</a>
                         </div>
+                        <form method="POST" action="{% url 'add_to_cart' product.id %}">
+                                {% csrf_token %}
+                                <input type="number" class="product-add-quantity" name="quantity" value="1">
+                                <button type="submit" class="product-add"><i class="fa-solid fa-cart-shopping"></i>Add to Cart</button>
+                        </form>
                     </div>
                 </div>
                 {% endfor %}
+            </div>
         </div>
     </section>
 
