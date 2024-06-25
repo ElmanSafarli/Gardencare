@@ -18,32 +18,103 @@
         <div class="shopBox-content">
             <div class="shopBox-group">
                 {% for product in products %}
-                <div class="shopBox">
+                <div class="shopBox" data-menu-item-id="{{ product.id }}">
                     <div class="shopBox-img">
                         <img src="{{ product.image.url }}" alt="{{ product.title }}">
                     </div>
                     <div class="shopBox-info">
                         <div class="shopBox-top">
                             <div class="shopBox-title">{{ product.title }}</div>
-                            <div class="shopBox-price">₼{{ product.price }}</div>
+                            <div class="shopBox-price">{{ product.price }}₼</div>
                         </div>
                         <div class="shopBox-text">
                             {{ product.description|slice:":150" }}{% if product.description|length > 150 %}...{% endif %}
                         </div>
-                        <div class="shopBox-btn">
-                            <a href="{{ product.get_absolute_url }}">Sifariş Et</a>
+<!--                        <div class="shopBox-btn">-->
+<!--                            <a href="{{ product.get_absolute_url }}">Sifariş Et</a>-->
+<!--                        </div>-->
+                        <div class="menu-btn">
+                            <button class="addToCartBtn" data-menu-item="{{ product.id }}">Səbətə ələvə et</button>
                         </div>
-                        <form method="POST" action="{% url 'add_to_cart' product.id %}">
-                                {% csrf_token %}
-                                <input type="number" class="product-add-quantity" name="quantity" value="1">
-                                <button type="submit" class="product-add"><i class="fa-solid fa-cart-shopping"></i>Add to Cart</button>
-                        </form>
                     </div>
                 </div>
                 {% endfor %}
             </div>
         </div>
     </section>
+
+    <div class="cart-count-container">
+        <span id="cartCount">0</span>
+    </div>
+    <button id="showCartBtn"><img src="{% static 'assets/shopping-bag.png' %}" alt=""></button>
+
+    <div id="cartSidebar">
+        <div class="cartHeader">
+            <h2>Səbət</h2>
+            <span class="closeBtn" id="closeCartBtn">&times;</span>
+        </div>
+        <div class="cartContent" id="cartContent">
+            <div class="shopping-cart">
+                <ul id="cart-items" class="cart-items-list"></ul>
+                <div id="total-price">Yekun məbləğ: 0 ₼</div>
+                <button id="send-to-telegram-btn">Sifariş ver</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="contactForm" class="contact-information-order-form-container">
+        <div class="contact-information-order-container">
+            <div class="contact-information-order-form-wrapper">
+                <div class="contact-information-order-heading">
+                    Bizimlə əlaqə saxlayın
+                    <button id="closeReviewForm" type="button">X</button>
+                </div>
+                <p class="contact-information-order-sub-heading">
+                    Bizə mesaj göndərmək üçün aşağıdakı formanı doldurun.
+                </p>
+                <form id="contactFormForm" method="post" action="{% url 'send_to_telegram' %}">
+                    {% csrf_token %}
+                    <div class="mb-6">
+                        <label for="contactName">Ad</label>
+                        <input type="text" name="contactName" id="contactName" placeholder="Ad" required
+                            class="contact-information-order-form-input" />
+                    </div>
+                    <div class="mb-6">
+                        <label for="contactSurname">Soyad</label>
+                        <input type="text" name="contactSurname" id="contactSurname" placeholder="Soyad" required
+                            class="contact-information-order-form-input" />
+                    </div>
+                    <div class="mb-6">
+                        <label for="contactNumber">Əlaqə nömrəsi</label>
+                        <input type="text" name="contactNumber" id="contactNumber" placeholder="+994 70 000 00 00"
+                            required class="contact-information-order-form-input" />
+                    </div>
+                    <div class="mb-6">
+                        <label for="contactAddress">Ünvan</label>
+                        <input type="text" name="contactAddress" id="contactAddress" placeholder="Təbriz küçəsi...."
+                            required class="contact-information-order-form-input" />
+                    </div>
+                    <div class="mb-6">
+                        <button class="button-hold" id="confirmContactBtn" type="submit">
+                            <div>
+                                <svg class="icon" viewBox="0 0 16 16">
+                                    <polygon points="1.3,6.7 2.7,8.1 7,3.8 7,16 9,16 9,3.8 13.3,8.1 14.7,6.7 8,0">
+                                    </polygon>
+                                </svg>
+                                <svg class="progress" viewBox="0 0 32 32">
+                                    <circle r="8" cx="16" cy="16" />
+                                </svg>
+                                <svg class="tick" viewBox="0 0 24 24">
+                                    <polyline points="18,7 11,16 6,12" />
+                                </svg>
+                            </div>
+                            Göndər
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}
 
