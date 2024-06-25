@@ -27,7 +27,7 @@ This project includes several key components:
 ## Beginning of work
 > Clone the repository:
 ```python
-git clone https://github.com/ElmanSafarli/gardencare.git
+git clone https://github.com/ElmanSafarli/Gardencare.git
 ```
 
 > Install dependencies:
